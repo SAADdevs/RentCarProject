@@ -167,7 +167,7 @@
 
                     <div class="form-group">
                         <label for="image_url">Car Image</label>
-                        @if ($car->image_url) <!-- Check if there's a current image -->
+                        @if ($car->image_url)
                             <div class="mb-3">
                                 <img src="{{ asset('images/' . $car->image_url) }}" alt="Current Car Image" class="img-thumbnail" style="max-width: 200px;">
                                 <p class="mt-2">Current Image</p>
@@ -189,20 +189,4 @@
             </div>
         </div>
     </div>
-
-    <script>
-        (function () {
-            'use strict';
-            const forms = document.querySelectorAll('.requires-validation');
-            Array.from(forms).forEach(function (form) {
-                form.addEventListener('submit', function (event) {
-                    if (!form.checkValidity()) {
-                        event.preventDefault();
-                        event.stopPropagation();
-                    }
-                    form.classList.add('was-validated');
-                }, false);
-            });
-        })();
-    </script>
 @endsection

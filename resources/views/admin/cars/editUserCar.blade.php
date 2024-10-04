@@ -128,18 +128,13 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="owner">Owner</label>
-                        <input class="form-control" type="text" name="owner" placeholder="owner" value="{{ $car->owner->name }}" required>
-                    </div>
-
-                    <div class="form-group">
                         <label for="city">city</label>
                         <input class="form-control" type="text" name="city" placeholder="city" value="{{ $car->city }}" required>
                     </div>
 
                     <div class="form-group">
                         <label for="image_url">Car Image</label>
-                        <input class="form-control" type="file" name="image_url" accept="image/*" required>
+                        <input class="form-control" type="file" name="image_url" accept="image/*" >
                     </div>
 
                     <div class="form-group">
@@ -160,5 +155,5 @@
         </div>
     </div>
 
-    
+
 @endsection

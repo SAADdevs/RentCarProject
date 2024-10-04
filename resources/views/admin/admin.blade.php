@@ -210,13 +210,13 @@
             </div>
         </div>
     </div>
-    
+
     <div class="recent-activities section">
         <h4>Recent Activities</h4>
         @forelse($recentActivities as $activity)
             <div class="activity-item">
                 <span class="activity-icon">
-                    <i class="fas fa-bell  text-success }}"></i>
+                    <i class="fas fa-bell  text-success }}"> </i>
 
                 </span>
                 <h6>{{ $activity->message }}</h6>

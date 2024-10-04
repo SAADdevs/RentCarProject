@@ -54,7 +54,7 @@ class RentalRequestController extends Controller
         $adminId = User::where('role', 'admin')->first()->id;
         Notification::create([
             'user_id' => $adminId,
-            'message' => 'the owner ' . $owner->name . ' approved car request by   ' .$customer ,
+            'message' => 'the owner ' . $owner->name . ' approved car request by   ' .$customer->name ,
             'is_read' => false,
         ]);
 
@@ -86,7 +86,7 @@ class RentalRequestController extends Controller
         $adminId = User::where('role', 'admin')->first()->id;
         Notification::create([
             'user_id' => $adminId,
-            'message' => 'the owner ' . $owner->name . ' rejected car request by   ' .$customer ,
+            'message' => 'the owner ' . $owner->name . ' rejected car request by   ' .$customer->name ,
             'is_read' => false,
         ]);
 

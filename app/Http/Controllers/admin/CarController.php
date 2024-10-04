@@ -29,9 +29,9 @@ class CarController extends Controller
         $validatedData = $request->validate([
             'model' => 'required|string|max:255',
             'city' => 'required|string|max:255',
-            'owner' => 'required|string|max:255',
             'status' => 'required|in:rejected,approved,pending',
         ]);
+
 
         $user->update($validatedData);
 

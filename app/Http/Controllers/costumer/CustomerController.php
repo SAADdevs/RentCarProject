@@ -41,6 +41,7 @@ class CustomerController extends Controller
     {
         if($request->input('start_date')>= $request->input('end_date'))
         {
+            dd('i am inside');
             return redirect()->route('costumers')->withErrors(['there issue with dates please fille a correct dates .']);
         }
         //dd($request->start_date);
@@ -105,7 +106,7 @@ class CustomerController extends Controller
         if ($overlappingRentals) {
             return redirect()->route('viewCarDetails',$car->id)->withErrors(['Car is already rented during the selected dates.']);
         }
-
+        //create a rental car
         $rental = new Rental();
         $rental->car_id = $car->id;
         $rental->customer_id = Auth::id();
@@ -125,8 +126,14 @@ class CustomerController extends Controller
            'message' => 'the customer ' .$customer->name .'do a renting request to owner ' .$owner->name . 'for the car with id ' .$car->id,
            'is_read' => false,
        ]);
-        Mail::to($owner->email)->send(new RentalRequestNotification($car, $customer,$owner));
 
+       
+       try {
+        Mail::to($owner->email)->send(new RentalRequestNotification($car, $customer, $owner));
+    } catch (\Exception $e) {
+        // Handle the email sending error and return a user-friendly error message
+        return redirect()->route('costumers')->withErrors(['An error occurred while sending the rental request notification. Please try again later.']);
+    }
 
         return redirect()->route('costumers')->with('success', 'Car rental has been successfully requested!');
     }

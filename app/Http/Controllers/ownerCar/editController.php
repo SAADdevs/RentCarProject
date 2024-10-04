@@ -19,7 +19,6 @@ class editController extends Controller
         $user = Car::find($id);
         $validatedData = $request->validate([
             'model' => 'required|string|max:255',
-            'image_url' => 'required|string|max:255',
             'year' => 'required|integer|min:1886|max:' . date('Y'),
             'price_per_day' => 'required|string|min:0',
             'description' => 'required|string|max:1000',

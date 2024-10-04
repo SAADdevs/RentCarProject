@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers\costumer;
 use App\Http\Controllers\Controller;
 use App\Models\Car;
